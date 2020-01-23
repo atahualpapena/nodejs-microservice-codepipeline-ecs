@@ -11,7 +11,8 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws --version
-      - aws ecr get-login --no-include-email --region ${AWS_REGION}
+      - login_cmd=$(aws ecr get-login --no-include-email --region ${AWS_REGION})
+      - ${login_cmd}
       - REPOSITORY_URI=${account_id}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ecs_service}
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
