@@ -5,7 +5,7 @@ PORT = 8080;
 HOST = "0.0.0.0";
 
 app.get("/", (req, res) => {
-  res.send("Hello from the server");
+  res.send("Hello from the server deployed with CodePipeline");
 });
 
 app.listen(PORT, () => {
