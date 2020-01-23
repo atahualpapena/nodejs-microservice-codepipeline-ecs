@@ -29,6 +29,6 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing definitions file...
-      - printf '[{"name":"${ecs_service}","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > taskdefinition.json
+      - printf '[{"name":"nodejs-microservice","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > taskdefinition.json
 artifacts:
   files: taskdefinition.json
