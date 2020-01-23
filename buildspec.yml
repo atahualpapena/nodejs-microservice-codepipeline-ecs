@@ -4,6 +4,9 @@ env:
     account_id: "764737026155"
     ecs_service: "nodejs-microservice"
 phases:
+  install:
+    runtime-versions:
+      docker: 18
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
