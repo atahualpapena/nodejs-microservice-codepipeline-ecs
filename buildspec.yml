@@ -10,7 +10,7 @@ phases:
       - aws --version
       - aws ecr get-login --no-include-email --region ${AWS_REGION}
       - REPOSITORY_URI=${account_id}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ecs_service}
-      - COMMIT_HASH=$(echo ${CODEBUILD_BUILD_ID} | tail -c 13)
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
   build:
     commands:
